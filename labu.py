@@ -15,7 +15,7 @@ def connect():
     mozzi.load_host_keys(known_hosts)
     mozzi.load_system_host_keys()
     mozzi.set_missing_host_key_policy(AutoAddPolicy())
-    mozzi.connect("90.157.164.240",port=2501,username="meow",key_filename="/home/berny/.ssh/id_rsa")
+    mozzi.connect("IP",port="PORT",username="USERNAME",key_filename="PUB_KEY")
 
 def pass_cmd():
     """Execute passed commands on Mozzi"""
