@@ -20,7 +20,7 @@ class Mozzi():
         mozzi.load_system_host_keys()
         mozzi.set_missing_host_key_policy(AutoAddPolicy())
         mozzi.connect("IP",port=0000,username="USERNAME",
-            key_filename="PUB_KEY_LOC")
+            key_filename="PUB_KEY_LOC") # set!
 
     @staticmethod
     def remote_cmd(cmd):
