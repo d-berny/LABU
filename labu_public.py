@@ -3,7 +3,7 @@
 import os
 from paramiko import SSHClient, AutoAddPolicy
 from rich import pretty, print as pwint
-pretty.install()
+# pretty.install()
 
 # MOZZI'S RICH METHODS:
 # from rich import inspect
@@ -70,7 +70,6 @@ class Mozzi():
             old_item = f"{dir_old}/{item}"
             sftp.rename(new_item, old_item)
             pwint(f"Moved: {new_item} → {old_item}")
-        # remote_cmd(f"mv {dir_new}* {dir_old}")
 
     @staticmethod
     def empty(remote_dir):
@@ -85,9 +84,9 @@ mozzi = SSHClient()
 Mozzi.connect()
 sftp = mozzi.open_sftp()
 
-LOCAL_PATH = "/home/berny/Private"
-REMOTE_PATH_OLD = "/home/meow/LABU_Gaia_Private_OLD"
-REMOTE_PATH_NEW = "/home/meow/LABU_Gaia_Private_NEW"
+LOCAL_PATH = os.environ.get("GaiaPrivate")
+REMOTE_PATH_OLD = os.environ.get("MozziBackupOLD")
+REMOTE_PATH_NEW = os.environ.get("MozziBackupNEW")
 
 try:
     sftp.mkdir(REMOTE_PATH_NEW)
